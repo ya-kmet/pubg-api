@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.playbattlegrounds.com/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.api+json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      Authorization:
+      - Bearer api-key
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Mar 2018 17:03:01 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '123'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - e665d525-6651-47ca-b739-562f5b114ba0
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"type":"status","id":"pubg-api","attributes":{"releasedAt":"2018-03-12T14:08:16Z","version":"master"}}}
+
+'
+    http_version: 
+  recorded_at: Tue, 13 Mar 2018 17:03:01 GMT
+recorded_with: VCR 4.0.0
