@@ -1,8 +1,10 @@
 # To make it easier to find descriptions and add exceptions
 AllCops:
+  TargetRubyVersion: '2.3'
   DisplayCopNames: true
   Exclude:
     - 'bin/**/*'
+    - 'vendor/**/*'
 
 # So when reading code we know that given line has continuation
 Layout/DotPosition:

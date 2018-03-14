@@ -46,7 +46,7 @@ module Pubg
       end
 
       def headers
-        @headers ||= { :Authorization => "Bearer #{@client.api_key}" }.merge(self.class.headers)
+        @headers ||= { Authorization: "Bearer #{@client.api_key}" }.merge(self.class.headers)
       end
     end
   end

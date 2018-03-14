@@ -1,5 +1,10 @@
 cache: bundler
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=ff6f83857598f43ef357d0bd3828d8ffea9b29373dadf56da7b9be9e2a10ec62
+    - JRUBY_OPTS="$JRUBY_OPTS --debug"
+
 language: ruby
 
 rvm:
@@ -18,10 +23,16 @@ bundler_args: --without development --retry=3 --jobs=3
 before_install:
   - gem update --system
   - gem update bundler
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
-env:
-  global:
-    - JRUBY_OPTS="$JRUBY_OPTS --debug"
+script:
+  - bundle exec rubocop
+  - bundle exec rspec
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 matrix:
   allow_failures:

@@ -14,10 +14,10 @@ RSpec.describe Pubg::Api::HttpWrapper do
           '/',
           query: {},
           headers: {
-            :Authorization => 'Bearer api_key',
-            :Accept => 'application/vnd.api+json',
-            :'Content-Type' => 'application/json',
-            :'Accept-Encoding' => 'gzip'
+            Authorization: 'Bearer api_key',
+            Accept: 'application/vnd.api+json',
+            'Content-Type': 'application/json',
+            'Accept-Encoding': 'gzip'
           }
         )
     end

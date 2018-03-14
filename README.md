@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/bartlomiejdanek/pubg-api.svg?branch=master)](https://travis-ci.org/bartlomiejdanek/pubg-api)
-# Pubg::Api
+Pubg::Api [![Build Status](https://travis-ci.org/bartlomiejdanek/pubg-api.svg?branch=master)](https://travis-ci.org/bartlomiejdanek/pubg-api) [![Maintainability](https://api.codeclimate.com/v1/badges/5aef6c3dd01bb03930c6/maintainability)](https://codeclimate.com/github/bartlomiejdanek/pubg-api/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5aef6c3dd01bb03930c6/test_coverage)](https://codeclimate.com/github/bartlomiejdanek/pubg-api/test_coverage)
+========
 
-A Ruby interface to the PUBG (PLAYERUNKNOWN'S BATTLEGROUNDS) API.
+A Ruby wrapper to the PUBG (PLAYERUNKNOWN'S BATTLEGROUNDS) API.
 
 ## Installation
 
