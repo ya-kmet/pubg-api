@@ -26,7 +26,11 @@ module Pubg
       end
 
       def request
-        @request ||= self.class.get(path, query: query, headers: headers)
+        @request ||= self.class.get(
+          path,
+          query: query,
+          headers: headers
+        )
       end
 
       def body
@@ -46,7 +50,7 @@ module Pubg
       end
 
       def headers
-        @headers ||= { Authorization: "Bearer #{@client.api_key}" }.merge(self.class.headers)
+        { Authorization: "Bearer #{@client.api_key}" }.merge(self.class.headers)
       end
     end
   end

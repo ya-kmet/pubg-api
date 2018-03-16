@@ -17,6 +17,12 @@ module Pubg
         pc-as
       ].freeze
 
+      GAME_MODS = %w[
+        solo
+        duo
+        squad
+      ].freeze
+
       DEFAULT_REGION = 'pc-eu'.freeze
       DEFAULT_LIMIT = 5
       DEFAULT_ORDER = 'asc'.freeze
@@ -27,14 +33,22 @@ module Pubg
       }.freeze
 
       def next
-        next_match_opts = opts.dup
-        next_match_opts[:offest] = offset + 1
-        Matches.new(opts).request
+        page(offset + 1)
+      end
+
+      def prev
+        page(offset - 1)
       end
 
       private
 
       attr_reader :opts
+
+      def page(new_offset)
+        matches_opts = opts.dup
+        matches_opts[:offset] = new_offset
+        Matches.new(client, matches_opts)
+      end
 
       def path
         "shards/#{region}/matches"
@@ -47,8 +61,8 @@ module Pubg
           filter: {
             'createdAt-start' => filter_start,
             'createdAt-end' => filter_end,
-            'playerIds' => player_ids,
-            'gameMode' => game_mode
+            'playerIds' => filter_player_ids,
+            'gameMode' => filter_game_mode
           }
         }
       end
@@ -66,15 +80,15 @@ module Pubg
       end
 
       def filter_start
-        opts[:start]
+        opts[:start]&.iso8601
       end
 
       def filter_end
-        opts[:end]
+        opts[:end]&.iso8601
       end
 
       def filter_player_ids
-        opts[:player_ids]
+        opts[:player_ids]&.join(',')
       end
 
       def filter_game_mode
