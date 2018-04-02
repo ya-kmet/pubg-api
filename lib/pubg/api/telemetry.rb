@@ -1,7 +1,7 @@
 module Pubg
   module Api
-    class Telemetry < HttpWrapper
-      base_uri 'https://telemetry-cdn.playbattlegrounds.com/'.freeze
+    class Telemetry < Endpoint
+      # base_uri 'https://telemetry-cdn.playbattlegrounds.com/'.freeze
 
       private
 

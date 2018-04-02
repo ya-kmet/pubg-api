@@ -1,47 +1,26 @@
 RSpec.describe Pubg::Api::HttpWrapper do
-  describe '#request' do
+  describe '#get_request' do
     it 'sends a Get request' do
-      client = Pubg::Api::Client.new('api_key')
+      response = {}
+      allow(Pubg::Api::HttpWrapper).to receive(:get) { response }
 
-      allow(Pubg::Api::HttpWrapper).to receive(:get)
-      http_wrapper = Pubg::Api::HttpWrapper.new(client)
+      request_response = Pubg::Api::HttpWrapper.get_request(
+        '/scope',
+        { search: 'a' },
+        api_key: 'api_key'
+      )
 
-      http_wrapper.request
-
-      expect(Pubg::Api::HttpWrapper).to \
-        have_received(:get).
-        with(
-          '/',
-          query: {},
-          headers: {
-            Authorization: 'Bearer api_key',
-            Accept: 'application/vnd.api+json',
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'gzip'
-          }
-        )
-    end
-  end
-
-  describe '#body' do
-    it 'returns request body' do
-      client = Pubg::Api::Client.new('api_key')
-
-      response_body = double(:response_body, parsed_response: 'parsed_response')
-      allow(Pubg::Api::HttpWrapper).to receive(:get) { response_body }
-      http_wrapper = Pubg::Api::HttpWrapper.new(client)
-
-      expect(http_wrapper.body).to eq('parsed_response')
-    end
-  end
-
-  describe '#query' do
-    it 'returns an empty hash' do
-      client = Pubg::Api::Client.new('api_key')
-
-      http_wrapper = Pubg::Api::HttpWrapper.new(client)
-
-      expect(http_wrapper.query).to eq({})
+      expect(Pubg::Api::HttpWrapper).to have_received(:get).with(
+        '/scope',
+        query: { search: 'a' },
+        headers: {
+          Accept: 'application/vnd.api+json',
+          "Content-Type": 'application/json',
+          "Accept-Encoding": 'gzip',
+          Authorization: 'Bearer api_key'
+        }
+      )
+      expect(request_response).to eq(response)
     end
   end
 end

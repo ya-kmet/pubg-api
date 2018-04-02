@@ -1,5 +1,6 @@
 require 'pubg/api/version'
 require 'pubg/api/http_wrapper'
+require 'pubg/api/endpoint'
 require 'pubg/api/client'
 require 'pubg/api/status'
 require 'pubg/api/matches'

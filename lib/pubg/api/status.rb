@@ -1,7 +1,9 @@
 
 module Pubg
   module Api
-    class Status < HttpWrapper
+    class Status < Endpoint
+      private
+
       def path
         '/status'
       end

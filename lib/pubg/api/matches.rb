@@ -1,7 +1,7 @@
 
 module Pubg
   module Api
-    class Matches < HttpWrapper
+    class Matches < Endpoint
       REGIONS = %w[
         xbox-as
         xbox-eu

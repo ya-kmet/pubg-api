@@ -1,7 +1,7 @@
 
 module Pubg
   module Api
-    class Match < HttpWrapper
+    class Match < Endpoint
       DEFAULT_REGION = 'pc-eu'.freeze
 
       private

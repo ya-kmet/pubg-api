@@ -20,37 +20,10 @@ module Pubg
 
       debug_output if ENV['DEBUG_PUBG_API']
 
-      def initialize(client, opts = {})
-        @client = client
-        @opts = opts
-      end
-
-      def request
-        @request ||= self.class.get(
-          path,
-          query: query,
-          headers: headers
-        )
-      end
-
-      def body
-        request.parsed_response
-      end
-
-      def query
-        {}
-      end
-
-      private
-
-      attr_reader :client
-
-      def path
-        '/'
-      end
-
-      def headers
-        { Authorization: "Bearer #{@client.api_key}" }.merge(self.class.headers)
+      def self.get_request(path, query = {}, opts = {})
+        get(path,
+            query: query,
+            headers: headers.merge(Authorization: "Bearer #{opts.fetch(:api_key)}"))
       end
     end
   end

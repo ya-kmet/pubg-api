@@ -74,14 +74,14 @@ RSpec.describe Pubg::Api::Matches do
                                        player_ids: ['player-1_id', 'player-2_id'],
                                        game_mode: 'squad')
 
-      allow(Pubg::Api::Matches).to receive(:get)
-      matches.request
+      allow(Pubg::Api::HttpWrapper).to receive(:get_request)
+      matches.response
 
-      expect(Pubg::Api::Matches).to \
-        have_received(:get).
+      expect(Pubg::Api::HttpWrapper).to \
+        have_received(:get_request).
         with(
           'shards/pc-eu/matches',
-          query: {
+          {
             page: { offset: 1, limit: 2 },
             sort: '-createdAt',
             filter: {
@@ -91,12 +91,7 @@ RSpec.describe Pubg::Api::Matches do
               'gameMode' => 'squad'
             }
           },
-          headers: {
-            Authorization: 'Bearer api-key',
-            Accept: 'application/vnd.api+json',
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'gzip'
-          }
+          api_key: 'api-key'
         )
     end
   end
