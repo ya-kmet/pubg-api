@@ -1,4 +1,3 @@
-
 module Pubg
   module Api
     class Matches < Endpoint
