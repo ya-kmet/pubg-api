@@ -80,7 +80,7 @@ RSpec.describe Pubg::Api::Matches do
       expect(Pubg::Api::HttpWrapper).to \
         have_received(:get_request).
         with(
-          'shards/pc-eu/matches',
+          '/shards/pc-eu/matches',
           {
             page: { offset: 1, limit: 2 },
             sort: '-createdAt',

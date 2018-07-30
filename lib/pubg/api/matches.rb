@@ -51,7 +51,7 @@ module Pubg
       end
 
       def path
-        "shards/#{region}/matches"
+        "/shards/#{region}/matches"
       end
 
       def query

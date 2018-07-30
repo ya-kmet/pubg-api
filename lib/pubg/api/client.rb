@@ -16,6 +16,10 @@ module Pubg
         Matches.new(self, opts)
       end
 
+      def players(opts = {})
+        Players.new(self, opts)
+      end
+
       def match(match_id)
         Match.new(self, match_id: match_id)
       end
