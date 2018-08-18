@@ -8,7 +8,7 @@ module Pubg
       attr_reader :opts
 
       def path
-        "shards/#{region}/matches/#{match_id}"
+        "/shards/#{region}/matches/#{match_id}"
       end
 
       def region
