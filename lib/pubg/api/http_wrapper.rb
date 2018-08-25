@@ -6,7 +6,7 @@ module Pubg
     class HttpWrapper
       include HTTParty
 
-      base_uri 'https://api.playbattlegrounds.com/'.freeze
+      base_uri 'https://api.pubg.com/'.freeze
       headers \
         'Accept': 'application/vnd.api+json',
         'Content-Type': 'application/json',
