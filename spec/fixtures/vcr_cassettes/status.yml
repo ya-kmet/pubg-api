@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.playbattlegrounds.com/status
+    uri: https://api.pubg.com/status
     body:
       encoding: US-ASCII
       string: ''

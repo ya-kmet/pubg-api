@@ -19,8 +19,8 @@ module Pubg
         Players.new(self, opts)
       end
 
-      def match(match_id)
-        Match.new(self, match_id: match_id)
+      def match(opts = {})
+        Match.new(self, opts)
       end
 
       def telemetry(path)
