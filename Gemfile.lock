@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     pubg-api (0.1.0)
+      httparty (>= 0.15)
+      plissken (>= 1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -122,4 +124,4 @@ DEPENDENCIES
   yardstick
 
 BUNDLED WITH
-   1.16.1
+   1.16.5
